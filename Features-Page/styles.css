@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     border: 0px;
+    outline: 2px solid red;
 }
 
 @font-face {
@@ -78,28 +79,20 @@ li a.nav {
     color: #7f8084;
 }
 
-.container {
-    position: absolute;
-    left: 50%;
-    top: 100px;
-    transform: translateX(-50%);
-    text-align: center;
-    width: 100%;
-    /* Allow full width */
-    max-width: 1200px;
-    /* Optional cap to keep it clean */
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 70px;
+    gap: 30px;
 }
 
-
 .text {
-    margin-top: 50px;
-    display: inline-block;
-    /* So width fits text */
     background: linear-gradient(140deg, #33B5D3, #4256AF, #783595);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 72px;
+    font-size: 53px;
     font-family: 'Roboto';
     text-align: center;
 }
@@ -109,22 +102,55 @@ li a.nav {
     font-size: 24px;
     font-family: 'Roboto-Italic';
     text-align: center;
-    letter-spacing: 5px;
-    margin-top: 20px;
+    letter-spacing: 1px;
 }
 
-.cta {
+.features-section{
+    width: 90%;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.card{
+    width: 428px;
+    height: 164px;
+    border: 1px solid #4241413a;
+    border-radius: 30px;
+    background-color: #37394c1a;
+}
+
+.cards{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+#robot{
+    height: 300px;
+    filter: saturate(150%) contrast(120%) brightness(80%);
+}
+
+.center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.center .cta {
+    width: 60%;
     background: linear-gradient(140deg, #33B5D3, #4256AF, #783595);
     background-size: 150% 150%;
     background-position: left;
     color: #d1d1d1;
-    padding: 14px 34px;
+    padding: 10px;
     border: none;
     border-radius: 30px;
     font-family: 'Roboto-Medium';
     font-size: 25px;
-    margin-right: 10px;
-    margin-top: 120px;
     cursor: pointer;
     transition: background-position 0.5s ease-in-out;
 }
@@ -132,31 +158,25 @@ li a.nav {
 .cta:hover {
     background-position: right;
 }
-
-.features {
+.card{
     display: flex;
-    justify-content: center;
-    /* Center the two <ul> lists horizontally */
-    gap: 400px;
-    /* Your desired gap */
-    color: #c0c0c0;
-    margin-top: 15%;
-    flex-wrap: nowrap;
-    /* Prevent wrapping to new line */
+    flex-direction: column;
+    padding: 10px;
+    padding-left: 30px;
+    gap: 20px;
+    box-sizing: border-box;
 }
-
-.features ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    border: none;
-    outline: none;
-}
-
-.features li {
+.feature-heading{
     font-family: 'Poppins';
     text-align: left;
-    margin-bottom: 30px;
-    color: #adadad;
+    color: #d4d4d4;
     font-size: 24px;
+}
+.feature-description{
+    font-family: 'Poppins';
+    margin-left: 20px;
+    margin-right: 50px;
+    text-align: left;
+    color: #adadad;
+    font-size: 16px;
 }
