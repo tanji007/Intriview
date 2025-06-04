@@ -68,6 +68,7 @@ header a{
 }
 .active{
     color: #7f8084;
+    border-bottom: 1px solid rgb(180, 180, 180);
 }
 
 main{
@@ -198,6 +199,11 @@ footer{
   .features{
     width: 100%;
     margin-bottom: 5vh;
+  }
+
+  .features li{
+    font-size: 0.8rem;
+    text-align: left;
   }
 }
 
