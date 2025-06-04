@@ -173,7 +173,7 @@ footer{
     display: block;
     width: 100%;
     padding: 1rem 0;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
     .logo {
     text-align: center;
@@ -186,7 +186,7 @@ footer{
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 
   .text{

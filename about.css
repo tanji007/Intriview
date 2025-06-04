@@ -263,7 +263,7 @@ footer {
         display: block;
         width: 100%;
         padding: 1rem 0;
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 
     .logo {
@@ -277,7 +277,7 @@ footer {
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     #robot{
@@ -286,4 +286,28 @@ footer {
     .cta{
         font-size: 1rem;
     }
+}
+
+
+@media (max-width: 768px) {
+    
+    .about{
+        flex-direction: column;
+        align-items: center;
+        gap: 4vh;
+    }
+   
+    .card{
+        width: 80vw;
+        height: 10vh;
+    }
+
+    .robot_button{
+        order: 1;
+    }
+
+    .cta{
+        width: 80vw;
+    }
+    
 }
