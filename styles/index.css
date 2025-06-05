@@ -9,17 +9,17 @@
 
 @font-face {
     font-family: 'Roboto';
-    src: url(fonts/Roboto-VariableFont_wdth\,wght.ttf);
+    src: url(../fonts/Roboto-VariableFont_wdth\,wght.ttf);
 }
 
 @font-face {
     font-family: 'Roboto-Ttalic';
-    src: url(fonts/Roboto-Italic-VariableFont_wdth\,wght.ttf);
+    src: url(../fonts/Roboto-Italic-VariableFont_wdth\,wght.ttf);
 }
 
 @font-face {
     font-family: 'Poppins';
-    src: url(fonts/Poppins-Regular.ttf);
+    src: url(../fonts/Poppins-Regular.ttf);
 }
 
 body {
