@@ -1,0 +1,81 @@
+main {
+    flex-direction: column;
+    gap: 15vh;
+}
+
+.text {
+    margin-top: 8vh;
+    font-size: 5rem;
+}
+
+.typeCards {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-bottom: 5vh;
+}
+
+button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 220px;
+    width: 280px;
+    background-color: #37394c26;
+    border: 1px solid #4241416c;
+    border-radius: 30px;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    transition: background-color 0.3s ease;
+}
+
+button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(140deg, #33B5D3, #4256AF, #783595);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  border-radius: 30px;
+  z-index: -1; 
+}
+
+button:hover::before {
+  opacity: 1;
+}
+
+button h1 {
+    color: #B9BBC0;
+    font-family: 'Poppins-Bold';
+}
+
+button p {
+    color: #ADADAD;
+    font-family: 'Poppins';
+    font-size: 1rem;
+    position: absolute;
+    top: 50%;
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+@media (max-width : 660px) {
+    .text{
+        font-size: 4rem;
+    }
+    button{
+        height: 250px;
+        width: 40%;
+    }
+
+    button h1{
+        font-size: 1.3rem;
+    }
+
+    button p{
+        font-family: 0.8rem;
+    }
+}
