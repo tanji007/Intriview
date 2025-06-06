@@ -2,6 +2,8 @@
     margin: 0px;
     border: 0px;
     padding: 0px;
+    -webkit-tap-highlight-color: transparent;
+
 }
 
 
@@ -23,6 +25,11 @@
 @font-face {
     font-family: 'Poppins-Bold';
     src: url(../fonts/Poppins-SemiBold.ttf);
+}
+
+@font-face {
+    font-family: 'Poppins-Bold-Italic' ;
+    src: url(../fonts/Poppins-ExtraBoldItalic.ttf);
 }
 
 body {
@@ -118,7 +125,8 @@ footer {
     background-size: 150% 150%;
     background-position: left;
     color: #d1d1d1;
-    padding: 10px;
+    padding: 14px 34px;
+    font-size: 25px;
     border: none;
     border-radius: 30px;
     font-family: 'Roboto-Medium';

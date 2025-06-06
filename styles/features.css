@@ -57,10 +57,6 @@ main{
     height: 300px;
     filter: saturate(150%) contrast(120%) brightness(80%);
 }
-.cta{
-    padding-left: 20px;
-    padding-right: 20px;
-}
 
 .text{
     margin-top: 9vh;

@@ -15,7 +15,9 @@ main {
     flex-wrap: wrap;
     margin-bottom: 5vh;
 }
-
+a{
+    text-decoration: none;
+}
 button {
     display: flex;
     flex-direction: column;
@@ -57,7 +59,7 @@ button p {
     font-family: 'Poppins';
     font-size: 1rem;
     position: absolute;
-    top: 50%;
+    top: 45%;
     margin-right: 20px;
     margin-left: 20px;
 }
@@ -67,15 +69,16 @@ button p {
         font-size: 4rem;
     }
     button{
-        height: 250px;
-        width: 40%;
+        height: 150px;
+        width: 40vw;
     }
 
     button h1{
-        font-size: 1.3rem;
+        font-size: 0.8rem;
     }
 
     button p{
-        font-family: 0.8rem;
+        font-size: 0.5rem;
+        top: 50%;
     }
 }
