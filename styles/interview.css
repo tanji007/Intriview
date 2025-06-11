@@ -1,272 +1,342 @@
 * {
-    margin: 0px;
-    border: 0px;
-    padding: 0px;
-    -webkit-tap-highlight-color: transparent;
+  margin: 0px;
+  border: 0px;
+  padding: 0px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @font-face {
-    font-family: 'Poppins-ExtraBold';
-    src: url(../fonts/Poppins-ExtraBoldItalic.ttf);
+  font-family: "Poppins-ExtraBold";
+  src: url(../fonts/Poppins-ExtraBoldItalic.ttf);
 }
 
 @font-face {
-    font-family: 'Poppins';
-    src: url(../fonts/Poppins-Regular.ttf);
+  font-family: "Poppins";
+  src: url(../fonts/Poppins-Regular.ttf);
 }
 
 body {
-    background-color: #121422;
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: space-between;
+  background-color: #121422;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-between;
 }
 
 .left {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
 }
 
 .container {
-    position: relative;
-    width: auto;
+  position: relative;
+  width: auto;
 }
 
 .base-image {
-    width: 440px;
-    display: block;
+  width: 440px;
+  display: block;
 }
 
 .overlay-image {
-    position: absolute;
-    top: 215px;
-    left: 180px;
-    pointer-events: none;
-    width: 95px;
-    transition: top 0.3s ease;
-    /* Smooth transition */
+  position: absolute;
+  top: 215px;
+  left: 180px;
+  pointer-events: none;
+  width: 95px;
+  transition: top 0.3s ease;
+  /* Smooth transition */
 }
 
 /* Hover effect: when you hover over the container (man image), move the glasses */
 .container:hover .overlay-image {
-    top: 205px;
-    /* Move glasses upward */
+  top: 205px;
+  /* Move glasses upward */
 }
 
 .timer {
-    margin-top: -80px;
-    display: flex;
-    gap: 20px;
+  margin-top: -80px;
+  display: flex;
+  gap: 20px;
 }
 
 #watch {
-    height: 40px;
-    align-self: center;
+  height: 40px;
+  align-self: center;
 }
 
 h2 {
-    font-family: 'Poppins-ExtraBold';
-    color: #B9BBC0;
-    font-size: 2.5rem;
-    align-self: flex-end;
+  font-family: "Poppins-ExtraBold";
+  color: #b9bbc0;
+  font-size: 2.5rem;
+  align-self: flex-end;
 }
 
 .right {
-    width: auto;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 5%;
-    padding-top: 50px;
-    padding-right: 30px;
-    padding-left: 30px;
-
+  width: auto;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5%;
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-left: 30px;
 }
 
 h1 {
-
-    font-size: 3rem;
-    font-family: 'Segoe UI', sans-serif;
-    font-weight: bold;
-    letter-spacing: 1px;
-    background: linear-gradient(90deg, #33B5D3, #4256AF, #783595);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+  font-size: 3rem;
+  font-family: "Segoe UI", sans-serif;
+  font-weight: bold;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #33b5d3, #4256af, #783595);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .chatbox {
-    box-sizing: border-box;
-    width: 100%;
-    height: 80%;
-    background: linear-gradient(160deg, #33b6d33b, #4056b043);
-    border: 1px solid #42414156;
-    border-radius: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    padding-bottom: 50px;
+  box-sizing: border-box;
+  height: 75vh; /* or use 70vh, for example */ /* optional, keeps it responsive */
+  overflow: hidden;
+  width: 100%;
+  background: linear-gradient(160deg, #33b6d33b, #4056b043);
+  border: 1px solid #42414156;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  padding-bottom: 50px;
 }
 
 .input_box {
-    margin-top: auto;
-    width: 90%;
-    background-color: #37394c3f;
-    border: 1px solid #4241414c;
-    border-radius: 30px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
+  margin-top: auto;
+  width: 90%;
+  background-color: #37394c3f;
+  border: 1px solid #4241414c;
+  border-radius: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
 }
 
 .input_text_box {
+  width: 90%;
+  max-height: 150px;
+  /* Max height before scroll appears */
+  min-height: 3rem;
+  /* Initial height */
+  resize: none;
+  /* Disable manual resize */
+  overflow-y: auto;
+  /* Enable scroll on overflow */
+  background: none;
+  color: #b9bbc0;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  border: none;
+  outline: none;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-family: "Poppins";
+}
+
+.input_text_box::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.input_text_box::-webkit-scrollbar-track {
+  background: transparent; /* Background of the track */
+}
+
+.input_text_box::-webkit-scrollbar-thumb {
+  background-color: #555; /* Scroll thumb color */
+  border-radius: 4px;
+  border: 2px solid transparent; /* Optional padding space */
+  background-clip: content-box;
+}
+
+.input_text_box::-webkit-scrollbar-thumb:hover {
+  background-color: #888; /* Color on hover */
+}
+
+.chat {
+  flex: 1;
+  overflow-y: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Optional: Custom scrollbar for consistency */
+.chat::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chat::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 4px;
+}
+
+.chat::-webkit-scrollbar-thumb:hover {
+  background-color: #888;
+}
+.que {
+  align-self: flex-start;
+  max-width: 60%;
+  background: linear-gradient(90deg, #6380e873, #9747ff6e);
+  border: 1px solid #42414154;
+  border-radius: 50px;
+  padding: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  color: #d3d3d3cb;
+  font-family: "Poppins";
+  font-size: 1.3rem;
+}
+
+.ans {
+  text-align: right;
+  align-self: flex-end;
+  max-width: 60%;
+  background: linear-gradient(90deg, #33b6d383, #4056b094);
+  border: 1px solid #42414154;
+  border-radius: 50px;
+  padding: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  color: #d3d3d3cb;
+  font-family: "Poppins";
+  font-size: 1.3rem;
+}
+
+.input_text_box:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+#upload {
+  height: 20px;
+}
+
+
+#mic {
+  height: 34px;
+}
+
+@media (max-width: 1500px) {
+  .left {
+    padding-top: 100px;
+  }
+
+  .base-image {
+    width: 300px;
+  }
+
+  .overlay-image {
+    width: 60px;
+    top: 150px;
+    left: 125px;
+  }
+
+  .container:hover .overlay-image {
+    top: 140px;
+    /* Move glasses upward */
+  }
+}
+
+@media (max-width: 1150px) {
+  .left {
+    padding-top: 100px;
+    width: 0px;
+  }
+
+  .base-image {
+    width: 0px;
+  }
+
+  .overlay-image {
+    width: 0px;
+    top: 150px;
+    left: 125px;
+  }
+
+  .container:hover .overlay-image {
+    top: 140px;
+    /* Move glasses upward */
+  }
+
+  #watch {
+    height: 0px;
+  }
+
+  h2 {
+    font-size: 0px;
+  }
+
+  .right {
+    padding: 20px;
+    padding-bottom: 20px;
+  }
+
+  .chatbox {
+    height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .right {
+    padding: 10px;
+    padding-bottom: 20px;
+    gap: 10px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  #cupload {
+    height: 12px;
+  }
+
+  #mic {
+    height: 24px;
+  }
+
+  .input_text_box {
     width: 90%;
     max-height: 150px;
     /* Max height before scroll appears */
-    min-height: 3rem;
+    min-height: 1rem;
     /* Initial height */
     resize: none;
     /* Disable manual resize */
     overflow-y: auto;
     /* Enable scroll on overflow */
     background: none;
-    color: #B9BBC0;
-    font-size: 1rem;
+    color: #b9bbc0;
+    font-size: 0.9rem;
     line-height: 1.5rem;
     border: none;
     outline: none;
     padding-top: 8px;
     padding-bottom: 8px;
-    font-family: 'Poppins';
-}
-
-
-.input_text_box:focus {
-    outline: none;
-    box-shadow: none;
-}
-
-#console {
-    height: 32px;
-}
-
-#mic {
-    height: 34px;
-}
-
-@media(max-width: 1500px) {
-
-    .left {
-        padding-top: 100px;
-    }
-
-    .base-image {
-        width: 300px;
-    }
-
-    .overlay-image {
-        width: 60px;
-        top: 150px;
-        left: 125px;
-    }
-
-    .container:hover .overlay-image {
-        top: 140px;
-        /* Move glasses upward */
-    }
-}
-
-@media(max-width: 1150px) {
-
-    .left {
-        padding-top: 100px;
-        width: 0px;
-    }
-
-    .base-image {
-        width: 0px;
-    }
-
-    .overlay-image {
-        width: 0px;
-        top: 150px;
-        left: 125px;
-    }
-
-    .container:hover .overlay-image {
-        top: 140px;
-        /* Move glasses upward */
-    }
-
-    #watch {
-        height: 0px;
-    }
-
-    h2 {
-        font-size: 0px;
-    }
-
-
-    .right {
-        padding: 20px;
-        padding-bottom: 20px;
-    }
-
-    .chatbox {
-        height: 100%;
-    }
-}
-
-@media (max-width: 768px) {
-
-    .right {
-        padding: 10px;
-        padding-bottom: 20px;
-        gap: 10px;
-    }
-
-    h1 {
-        font-size: 2rem;
-    }
-
-    #console {
-        height: 22px;
-    }
-
-    #mic {
-        height: 24px;
-    }
-
-    .input_text_box {
-        width: 90%;
-        max-height: 150px;
-        /* Max height before scroll appears */
-        min-height: 1rem;
-        /* Initial height */
-        resize: none;
-        /* Disable manual resize */
-        overflow-y: auto;
-        /* Enable scroll on overflow */
-        background: none;
-        color: #B9BBC0;
-        font-size: 0.9rem;
-        line-height: 1.5rem;
-        border: none;
-        outline: none;
-        padding-top: 8px;
-        padding-bottom: 8px;
-        font-family: 'Segoe UI', sans-serif;
-    }
-
-
+    font-family: "Segoe UI", sans-serif;
+  }
+  .que,.ans{
+    font-size: 1rem;
+  }
 }

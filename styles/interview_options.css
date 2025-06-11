@@ -106,10 +106,10 @@ form {
 }
 
 .buttons{
-    width: 100%;
+    width: 70%;
     gap: 20px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 #resume_button{
