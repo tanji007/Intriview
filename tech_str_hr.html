@@ -1,149 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/interview_options.css">
-    <link rel="shortcut icon" href="images/icon2.png" type="image/x-icon">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/styles.css" />
+    <link rel="stylesheet" href="styles/interview_options.css" />
+    <link rel="shortcut icon" href="images/icon2.png" type="image/x-icon" />
 
     <title>Interview-DSA</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <header>
-        <div class="logo"><a href="">INTRIVIEW</a></div>
-        <nav>
-            <ul class="nav">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="reports.html">Report</a></li>
-                <li><a href="features.html">Features</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
-        </nav>
+      <div class="logo"><a href="">INTRIVIEW</a></div>
+      <nav>
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="reports.html">Report</a></li>
+          <li><a href="features.html">Features</a></li>
+          <li><a href="login.html">Login</a></li>
+        </ul>
+      </nav>
     </header>
 
     <main>
-        <div class="text" id="interviewTitle">Tittle</div>
-        <form action="interview.html">
-            <div class="cards">
-                <div class="card">
-                    <h1>DURATION</h1>
-                    <div class="options">
-                        <label>
-                            <input type="radio" name="duration" value="15" required>
-                            <div class="radio-card">
-                                <img src="images/bolt.png" alt="">
-                                <div class="desc">15 MIN</div>
-                            </div>
-                        </label>
-
-                        <label>
-                            <input type="radio" name="duration" value="30">
-                            <div class="radio-card">
-                                <img src="images/stopwatch.png" alt="">
-                                <div class="desc">30 MIN</div>
-                            </div>
-                        </label>
-                        <label>
-                            <input type="radio" name="duration" value="60">
-                            <div class="radio-card">
-                                <img src="images/timer.png" alt="">
-                                <div class="desc">60 MIN</div>
-                            </div>
-                        </label>
-                    </div>
+      <div class="text" id="interviewTitle">Tittle</div>
+      <form action="interview.html">
+        <div class="cards">
+          <div class="card">
+            <h1>DURATION</h1>
+            <div class="options">
+              <label>
+                <input type="radio" name="duration" value="15" required />
+                <div class="radio-card">
+                  <img src="images/bolt.png" alt="" />
+                  <div class="desc">15 MIN</div>
                 </div>
+              </label>
 
-                <div class="card">
-                    <h1>DIFFICULTY</h1>
-                    <div class="options">
-                        <label>
-                            <input type="radio" name="difficulty" value="easy" required>
-                            <div class="radio-card">
-                                <img src="images/smile.png" alt="">
-                                <div class="desc">EASY </div>
-                            </div>
-                        </label>
-
-                        <label>
-                            <input type="radio" name="difficulty" value="medium">
-                            <div class="radio-card">
-                                <img src="images/mid.png" alt="">
-                                <div class="desc">MEDIUM</div>
-                            </div>
-                        </label>
-                        <label>
-                            <input type="radio" name="difficulty" value="hard">
-                            <div class="radio-card">
-                                <img src="images/fire.png" alt="">
-                                <div class="desc">HARD</div>
-                            </div>
-                        </label>
-                    </div>
+              <label>
+                <input type="radio" name="duration" value="30" />
+                <div class="radio-card">
+                  <img src="images/stopwatch.png" alt="" />
+                  <div class="desc">30 MIN</div>
                 </div>
+              </label>
+              <label>
+                <input type="radio" name="duration" value="60" />
+                <div class="radio-card">
+                  <img src="images/timer.png" alt="" />
+                  <div class="desc">60 MIN</div>
+                </div>
+              </label>
             </div>
-            <div class="buttons">
-                <button type="button" class="cta" id="resume_button">Upload Resume</button>
-                <input type="file" id="resume_input" accept=".pdf" style="display: none;" />
-                <p id="file_name_display" style="color: #6c757d; font-size: 0.9rem; margin-top: 0.5rem;"></p>
-                <button type="submit" class="cta">Start Interview</button>
-        </form>
+          </div>
+
+          <div class="card">
+            <h1>DIFFICULTY</h1>
+            <div class="options">
+              <label>
+                <input type="radio" name="difficulty" value="easy" required />
+                <div class="radio-card">
+                  <img src="images/smile.png" alt="" />
+                  <div class="desc">EASY</div>
+                </div>
+              </label>
+
+              <label>
+                <input type="radio" name="difficulty" value="medium" />
+                <div class="radio-card">
+                  <img src="images/mid.png" alt="" />
+                  <div class="desc">MEDIUM</div>
+                </div>
+              </label>
+              <label>
+                <input type="radio" name="difficulty" value="hard" />
+                <div class="radio-card">
+                  <img src="images/fire.png" alt="" />
+                  <div class="desc">HARD</div>
+                </div>
+              </label>
+            </div>
+          </div>
         </div>
-
-
+        <div class="buttons">
+          <button type="button" class="cta" id="resume_button">
+            Upload Resume
+          </button>
+          <input
+            type="file"
+            id="resume_input"
+            accept=".pdf"
+            style="display: none"
+          />
+          <p
+            id="file_name_display"
+            style="color: #6c757d; font-size: 0.9rem; margin-top: 0.5rem"
+          ></p>
+          <button type="submit" class="cta">Start Interview</button>
+        </div>
+      </form>
     </main>
 
     <footer></footer>
-    <script>
-        // Get the 'type' parameter from the URL
-        const params = new URLSearchParams(window.location.search);
-        const type = params.get('type');
-
-        // Map values to readable titles
-        const titles = {
-            technical: "Technical Interview",
-            star: "STAR-Based Interview",
-            hr: "HR Interview"
-        };
-
-        // Set title text based on type
-        if (type && titles[type]) {
-            document.getElementById("interviewTitle").textContent = titles[type];
-        } else {
-            document.getElementById("interviewTitle").textContent = "Interview Options";
-        }
-    </script>
-
-    <script>
-        const uploadButton = document.getElementById("resume_button");
-        const fileInput = document.getElementById("resume_input");
-        const fileDisplay = document.getElementById("file_name_display");
-
-        uploadButton.addEventListener("click", () => {
-            fileInput.click(); // Simulate click on hidden input
-        });
-
-        fileInput.addEventListener("change", () => {
-            const file = fileInput.files[0];
-            if (file) {
-                if (file.type !== "application/pdf") {
-                    uploadButton.textContent = "❌ Only PDF files allowed.";
-                    fileInput.value = ""; // reset the input
-                    return;
-                }
-
-                uploadButton.textContent = `${file.name}`;
-
-                // Optional: store name or content in localStorage (mockup only)
-                localStorage.setItem("resumeFileName", file.name);
-            }
-        });
-    </script>
-
-
-</body>
-
+    <script src="scripts/tech_str_hr.js"></script>
+  </body>
 </html>

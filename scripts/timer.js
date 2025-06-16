@@ -1,5 +1,6 @@
 let timeLeft = 60; // in seconds
 const display = document.getElementById("countdown");
+const inputBox = document.querySelector(".input_box");
 
 const countdown = setInterval(() => {
   const mins = Math.floor(timeLeft / 60);
@@ -12,6 +13,12 @@ const countdown = setInterval(() => {
   if (timeLeft <= 0) {
     clearInterval(countdown);
     display.textContent = "Time's up!";
+
+    // Remove input box
+    if (inputBox) {
+      inputBox.remove();
+    }
+
     return;
   }
 
