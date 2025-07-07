@@ -1,0 +1,46 @@
+
+main {
+  flex-direction: column;
+}
+
+.text {
+  font-size: 5rem;
+  margin-top: 5vh;
+}
+
+table,
+td,
+th {
+  color: rgb(196, 196, 196);
+  border: 1px solid rgb(123, 123, 123);
+}
+
+th{
+    font-family: 'Poppins-Bold';
+}
+
+table {
+  font-family:"Roboto" ;
+  margin-top: 5vh;
+  border-collapse: collapse;
+  text-align: center;
+  width: 100%;
+}
+
+td,
+th {
+  padding: 10px;
+}
+.desc {
+  text-align: left;
+}
+
+td.que-label,
+td.que-desc {
+  background-color: #ff22005a; /* red */
+}
+
+td.ans-label,
+td.ans-desc {
+  background-color: #00ff0847; /* green */
+}

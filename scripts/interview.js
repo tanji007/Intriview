@@ -12,18 +12,20 @@ let chatContainer = document.querySelector(".chat");
 let Name;
 
 // Predefined questions (reverse order for stack-like access)
-const questions = [
-  "What is Your Name",
-  "Hello Yash!"
-];
+const questions = ["What is Your Name", "Hello Yash!"];
+const intriviewQue = [...questions];
 questions.reverse(); // So we can use pop() to get them in order
 
 // Array to hold user answers temporarily
 let ans = [];
+let intriviewAns = [];
 
 // Function to add a question to the chat
 function addQue() {
-  if (questions.length === 0) return; // Stop if no more questions
+  if (questions.length === 0){
+    
+    return;
+  } // Stop if no more questions
 
   let questionDiv = document.createElement("div");
   questionDiv.classList.add("que");
@@ -38,6 +40,7 @@ let textArea = document.querySelector("textarea");
 function getAns() {
   let input = textArea.value.trim(); // Get and clean input
   ans.push(input); // Store the answer
+  intriviewAns.push(input);
   textArea.value = ""; // Clear the textarea
 }
 
@@ -46,54 +49,38 @@ function addAns() {
   let answerDiv = document.createElement("div");
   answerDiv.classList.add("ans");
   answerDiv.textContent = ans.pop(); // Get last answer
+  console.log(intriviewAns);
   chatContainer.appendChild(answerDiv);
 }
 
 // Handle Enter key to submit answer
 textArea.addEventListener("keypress", (e) => {
   if (e.key === "Enter" && !e.shiftKey) {
-    e.preventDefault(); // Prevent new line
-    getAns();           // Capture input
-    addAns();           // Display answer
+    e.preventDefault();
+    getAns(); // Get user input
+    addAns(); // Display answer
+
+    // If that was the last question, save and redirect
+    if (questions.length === 0) {
+      const resultObject = {};
+      for (let i = 0; i < intriviewQue.length; i++) {
+        resultObject[intriviewQue[i]] = intriviewAns[i];
+      }
+      localStorage.setItem("intriviewResult", JSON.stringify(resultObject));
+      console.log(resultObject);
+
+      // Add a small delay before redirecting (optional)
+      setTimeout(() => {
+        window.location.href = "report.html";
+      }, 1000);
+      return; // ✅ Don't call addQue after redirect is initiated
+    }
+
+    // Otherwise, ask next question after 1 second
     setTimeout(() => {
-      addQue();         // Show next question after 1 second
+      addQue();
     }, 1000);
   }
 });
 
-// Mic icon reference
-const mic = document.getElementById("mic");
 
-// Check for browser support
-const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
-if (SpeechRecognition) {
-  const recognition = new SpeechRecognition();
-  recognition.lang = "en-US";
-  recognition.interimResults = true; // Live update while speaking
-  recognition.continuous = false;    // Stop after a pause
-
-  mic.addEventListener("click", () => {
-    recognition.start();
-    mic.classList.add("listening");
-    textArea.placeholder = "Listening...";
-  });
-
-  // Live transcription to textarea
-  recognition.addEventListener("result", (event) => {
-    const transcript = Array.from(event.results)
-      .map(result => result[0].transcript)
-      .join("");
-
-    textArea.value = transcript;
-  });
-
-  // Stop listening visuals
-    recognition.addEventListener("end", () => {
-    mic.classList.remove("listening");
-    textArea.placeholder = "Type your response";
-    // No auto-submit here
-  });
-} else {
-  alert("Speech Recognition is not supported in this browser.");
-}
