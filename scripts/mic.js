@@ -1,37 +1,39 @@
-// Mic icon reference
-const mic = document.getElementById("mic");
+const micButton = document.querySelector("#mic");
 
-// Check for browser support
+// Check browser support
 const SpeechRecognition =
   window.SpeechRecognition || window.webkitSpeechRecognition;
 
-if (SpeechRecognition) {
-  const recognition = new SpeechRecognition();
+const recognition = SpeechRecognition ? new SpeechRecognition() : null;
+
+if (recognition) {
+  recognition.continuous = false;
+  recognition.interimResults = false;
   recognition.lang = "en-US";
-  recognition.interimResults = true; // Live update while speaking
-  recognition.continuous = false; // Stop after a pause
 
-  mic.addEventListener("click", () => {
+  recognition.onstart = () => {
+    micButton.classList.add("listening");
+  };
+
+  recognition.onend = () => {
+    micButton.classList.remove("listening");
+  };
+
+  recognition.onerror = (event) => {
+    alert("Speech recognition error: " + event.error);
+  };
+
+  recognition.onresult = (event) => {
+    const transcript = event.results[0][0].transcript.trim();
+    messageInput.value = transcript;
+    sendMessageButton.style.display = "block";
+    messageInput.focus();
+  };
+
+  micButton.addEventListener("click", () => {
     recognition.start();
-    mic.classList.add("listening");
-    textArea.placeholder = "Listening...";
-  });
-
-  // Live transcription to textarea
-  recognition.addEventListener("result", (event) => {
-    const transcript = Array.from(event.results)
-      .map((result) => result[0].transcript)
-      .join("");
-
-    textArea.value = transcript;
-  });
-
-  // Stop listening visuals
-  recognition.addEventListener("end", () => {
-    mic.classList.remove("listening");
-    textArea.placeholder = "Type your response";
-    // No auto-submit here
   });
 } else {
-  alert("Speech Recognition is not supported in this browser.");
+  micButton.disabled = true;
+  micButton.title = "Speech recognition not supported in this browser.";
 }

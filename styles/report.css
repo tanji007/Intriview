@@ -44,3 +44,66 @@ td.ans-label,
 td.ans-desc {
   background-color: #00ff0847; /* green */
 }
+
+.que-label,
+.ans-label,
+.feedback-label {
+  font-weight: bold;
+  background-color: rgba(0, 38, 255, 0.19);
+}
+
+.feedback-desc {
+  font-style: italic;
+  background-color:  rgba(0, 38, 255, 0.19);
+}
+
+/* Loader container */
+.loader-container {
+  text-align: center;
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: rgb(196, 196, 196);
+}
+
+/* Three-dot pulsing animation */
+.dot-loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.dot-loader span {
+  width: 10px;
+  height: 10px;
+  background-color: #6f00ff; /* Dot color */
+  border-radius: 50%;
+  animation: pulse 0.6s infinite ease-in-out;
+}
+
+.dot-loader span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot-loader span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 1;
+  }
+}
+
+/* Hide initially shown table */
+#report-table {
+  display: none;
+}

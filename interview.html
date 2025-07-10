@@ -6,10 +6,11 @@
     <title>Interview</title>
     <link rel="shortcut icon" href="images/icon2.png" type="image/x-icon" />
     <link rel="stylesheet" href="styles/interview.css" />
+    <!-- Linking Google Fonts for icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"/>
   </head>
-
   <body>
-    <div class="left">
+    <div class="image-area">
       <div class="container">
         <img src="images/interview_man.png" class="base-image" alt="Man" />
         <img src="images/Glass.png" class="overlay-image" alt="Spectacles" />
@@ -19,24 +20,32 @@
         <h2 id="countdown">01:00</h2>
       </div>
     </div>
-    <div class="right">
+    <div class="chatbot-container">
       <h1>INTRIVIEW</h1>
-      <div class="chatbox">
-        <div class="chat">
-        </div> 
-
-        <div class="input_box">
-          <textarea
-            class="input_text_box"
-            placeholder="Type your response"
-          ></textarea>
-          <img src="images/enter.png" alt="" id="upload" />
-          <img src="images/mic.png" alt="" id="mic" />
+      <div class="chatbot-popup">
+      <!-- Chatbot Body -->
+      <div class="chat-body">
+        <div class="message bot-message">
         </div>
       </div>
+
+      <!-- Chatbot Footer -->
+      <div class="chat-footer">
+        <form action="#" class="chat-form">
+          <textarea placeholder="message..." class="message-input" required></textarea>
+          <div class="chat-controls">
+            <!-- <button type="button" class="material-symbols-rounded"> code_blocks </button> -->
+            <button type="button" id="mic" class="material-symbols-rounded"> mic </button>
+            <button type="submit" id="send-message" class="material-symbols-rounded"> arrow_upward</button>
+          </div>
+        </form>
+      </div>
     </div>
+    </div>
+    
+  
     <script src="scripts/interview.js"></script>
-    <script src="scripts/timer.js"></script>
     <script src="scripts/mic.js"></script>
+    <!-- <script src="scripts/timer.js"></script> -->
   </body>
 </html>
