@@ -2,7 +2,7 @@ const chatBody = document.querySelector(".chat-body");
 const messageInput = document.querySelector(".message-input");
 const sendMessageButton = document.querySelector("#send-message");
 
-const API_KEY = "AIzaSyBcTsbJoFWx6agnKAMZBtBIYe89d_5DhyI";
+const API_KEY = "AIzaSyB2z24K-5rUmbl2sy_h-YjGv7nv2uiYg8k";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
 // Interview logic state
@@ -184,6 +184,7 @@ sendMessageButton.addEventListener("click", (e) => handleOutgoingMessage(e));
 // Optional: Start interview on page load
 window.onload = () => {
   localStorage.removeItem("interviewData"); // Clear past interview data
+  localStorage.removeItem("scoredReport"); //Clear the report
   setTimeout(() => {
     generateInterviewQuestions();
   }, 100);

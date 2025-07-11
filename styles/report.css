@@ -1,11 +1,12 @@
 
 main {
   flex-direction: column;
+  padding-bottom: 20px;
 }
 
 .text {
-  font-size: 5rem;
-  margin-top: 5vh;
+  font-size: 3rem;
+  margin-top: 2vh;
 }
 
 table,
@@ -21,7 +22,7 @@ th{
 
 table {
   font-family:"Roboto" ;
-  margin-top: 5vh;
+  margin-top: 2vh;
   border-collapse: collapse;
   text-align: center;
   width: 100%;

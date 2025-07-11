@@ -6,10 +6,9 @@
     <link rel="stylesheet" href="styles/styles.css" />
     <link rel="stylesheet" href="styles/interview_options.css" />
     <link rel="shortcut icon" href="images/icon2.png" type="image/x-icon" />
-
     <title>Interview-DSA</title>
   </head>
-
+  
   <body>
     <header>
       <div class="logo"><a href="">INTRIVIEW</a></div>
@@ -18,11 +17,11 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="report.html">Report</a></li>
           <li><a href="features.html">Features</a></li>
-          <li><a href="login.html">Login</a></li>
+          <li><a id="dashboard"></a></li>
         </ul>
       </nav>
     </header>
-
+    
     <main>
       <div class="text" id="interviewTitle">Tittle</div>
       <form action="interview.html">
@@ -37,7 +36,7 @@
                   <div class="desc">15 MIN</div>
                 </div>
               </label>
-
+              
               <label>
                 <input type="radio" name="duration" value="30" />
                 <div class="radio-card">
@@ -54,7 +53,7 @@
               </label>
             </div>
           </div>
-
+          
           <div class="card">
             <h1>DIFFICULTY</h1>
             <div class="options">
@@ -65,7 +64,7 @@
                   <div class="desc">EASY</div>
                 </div>
               </label>
-
+              
               <label>
                 <input type="radio" name="difficulty" value="medium" />
                 <div class="radio-card">
@@ -88,21 +87,23 @@
             Upload Resume
           </button>
           <input
-            type="file"
-            id="resume_input"
-            accept=".pdf"
-            style="display: none"
+          type="file"
+          id="resume_input"
+          accept=".pdf"
+          style="display: none"
           />
           <p
-            id="file_name_display"
-            style="color: #6c757d; font-size: 0.9rem; margin-top: 0.5rem"
+          id="file_name_display"
+          style="color: #6c757d; font-size: 0.9rem; margin-top: 0.5rem"
           ></p>
           <button type="submit" class="cta">Start Interview</button>
         </div>
       </form>
     </main>
-
+    
     <footer></footer>
+
     <script src="scripts/tech_str_hr.js"></script>
+    <script src="scripts/loggedin.js" type="module" defer></script>
   </body>
 </html>

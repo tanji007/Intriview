@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="styles/report.css" />
     <link rel="shortcut icon" href="images/icon2.png" type="image/x-icon" />
   </head>
-
+  
   <body>
     <header>
       <div class="logo"><a href="">INTRIVIEW</a></div>
@@ -17,14 +17,14 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="report.html" class="active">Report</a></li>
           <li><a href="features.html">Features</a></li>
-          <li><a href="login.html">Login</a></li>
+          <li><a id="dashboard"></a></li>
         </ul>
       </nav>
     </header>
-
+    
     <main>
       <div class="text">Report</div>
-
+      
       <div id="loader" class="loader-container">
         <div class="dot-loader">
           <span></span>
@@ -44,9 +44,10 @@
         <!-- Rows will be injected by JavaScript -->
       </table>
     </main>
-
+    
     <footer></footer>
-
+    
     <script src="scripts/report.js"></script>
+    <script src="scripts/loggedin.js" type="module" defer></script>
   </body>
 </html>

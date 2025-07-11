@@ -4,10 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intriview-SignUp</title>
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/login.css">
     <link rel="shortcut icon" href="images/icon2.png" type="image/x-icon">
-    <title>Intriview-SignUp</title>
+    <script type="module" src="scripts/signup.js" defer></script>
 </head>
 
 <body>
@@ -36,14 +37,14 @@
                     <img src="images/mail.png" id="mail" alt="">
                 </div>
                 <div class="input_box">
-                    <input type="password" class="password" placeholder="Password" required />
+                    <input type="password" id="password" placeholder="Password" required />
                     <img src="images/lock.png"  id="lock" alt="">
                 </div>
                 <div class="input_box">
-                    <input type="password" class="password" placeholder="Confirm Password" required />
+                    <input type="password" id="confirm-password" placeholder="Confirm Password" required />
                     <img src="images/lock.png"  id="lock" alt="">
                 </div>
-                <button type="submit" class="cta">Create</button>
+                <button type="submit" id="submit" class="cta">Create</button>
             </form>
         </div>
         <div class="image_tagline" >

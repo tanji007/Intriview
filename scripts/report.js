@@ -1,11 +1,9 @@
 window.onload = async () => {
   const loader = document.getElementById("loader");
   const table = document.getElementById("report-table");
-  const interviewData = JSON.parse(localStorage.getItem("interviewData")) || [];
 
-  // Show loader, hide table
-  loader.style.display = "flex";
-  table.style.display = "none";
+  const interviewData = JSON.parse(localStorage.getItem("interviewData")) || [];
+  const cachedReport = JSON.parse(localStorage.getItem("scoredReport")) || [];
 
   const isJunkAnswer = (answer) => {
     const lower = answer.trim().toLowerCase();
@@ -16,7 +14,50 @@ window.onload = async () => {
     );
   };
 
-  const API_KEY = "AIzaSyBcTsbJoFWx6agnKAMZBtBIYe89d_5DhyI";
+  const createReportRow = (srNo, entry) => {
+    const row1 = document.createElement("tr");
+    row1.innerHTML = `
+      <td rowspan="3">${srNo}</td>
+      <td class="que-label">Que</td>
+      <td class="desc que-desc">${entry.question}</td>
+      <td rowspan="3">${entry.score}</td>
+    `;
+
+    const row2 = document.createElement("tr");
+    row2.innerHTML = `
+      <td class="ans-label">Ans</td>
+      <td class="desc ans-desc">${entry.answer}</td>
+    `;
+
+    const row3 = document.createElement("tr");
+    row3.innerHTML = `
+      <td class="feedback-label">Feedback</td>
+      <td class="desc feedback-desc">${entry.feedback}</td>
+    `;
+
+    table.appendChild(row1);
+    table.appendChild(row2);
+    table.appendChild(row3);
+  };
+
+  // Show loader, hide table
+  loader.style.display = "flex";
+  table.style.display = "none";
+
+  // If cached report is available, use it
+  if (cachedReport.length > 0) {
+    let srNo = 1;
+    cachedReport.forEach((entry) => {
+      createReportRow(srNo++, entry);
+    });
+
+    loader.style.display = "none";
+    table.style.display = "table";
+    return;
+  }
+
+  // If no cached report, generate it
+  const API_KEY = "AIzaSyB2z24K-5rUmbl2sy_h-YjGv7nv2uiYg8k";
   const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
 
   const getScoreAndFeedbackFromAPI = async (question, answer) => {
@@ -69,7 +110,10 @@ Answer: ${answer}`;
     }
   };
 
+  // Generate and store scored report
   let srNo = 1;
+  let scoredReport = [];
+
   for (const entry of interviewData) {
     if (
       entry.question.toLowerCase().includes("what's your name") ||
@@ -83,35 +127,20 @@ Answer: ${answer}`;
       entry.answer
     );
 
-    // Question Row
-    const row1 = document.createElement("tr");
-    row1.innerHTML = `
-      <td rowspan="3">${srNo++}</td>
-      <td class="que-label">Que</td>
-      <td class="desc que-desc">${entry.question}</td>
-      <td rowspan="3">${score}</td>
-    `;
+    const fullEntry = {
+      question: entry.question,
+      answer: entry.answer,
+      score,
+      feedback,
+    };
 
-    // Answer Row
-    const row2 = document.createElement("tr");
-    row2.innerHTML = `
-      <td class="ans-label">Ans</td>
-      <td class="desc ans-desc">${entry.answer}</td>
-    `;
-
-    // Feedback Row
-    const row3 = document.createElement("tr");
-    row3.innerHTML = `
-      <td class="feedback-label">Feedback</td>
-      <td class="desc feedback-desc">${feedback}</td>
-    `;
-
-    table.appendChild(row1);
-    table.appendChild(row2);
-    table.appendChild(row3);
+    scoredReport.push(fullEntry);
+    createReportRow(srNo++, fullEntry);
   }
 
-  // After generating all rows
+  // Save to localStorage for caching
+  localStorage.setItem("scoredReport", JSON.stringify(scoredReport));
+
   loader.style.display = "none";
   table.style.display = "table";
 };
