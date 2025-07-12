@@ -12,6 +12,8 @@ let generatedQuestions = [];
 let interviewStarted = false;
 let userAnswers = [];
 let interviewData = []; // stores question-answer pairs
+let sessionId = null;
+
 
 // Create message element with dynamic classes and return it
 const createMessageElement = (content, ...classes) => {
@@ -35,21 +37,9 @@ function askNextQuestion() {
     const endMsg = `<div class="message-text">Thank you for your responses. The interview is now complete!</div>`;
     const endDiv = createMessageElement(endMsg, "bot-message");
     chatBody.appendChild(endDiv);
+   sessionId = Date.now();
+    sessionStorage.setItem("sessionId", sessionId);
 
-    // Show summary
-    // const summary = userAnswers
-    //   .map(
-    //     (ans, i) =>
-    //       `<div><strong>Q${i + 1}:</strong> ${
-    //         generatedQuestions[i]
-    //       }<br/><strong>Your Answer:</strong> ${ans}</div><br/>`
-    //   )
-    //   .join("");
-    // const summaryDiv = createMessageElement(
-    //   `<div class="message-text">${summary}</div>`,
-    //   "bot-message"
-    // );
-    // chatBody.appendChild(summaryDiv);
 
     // Redirect to report page after 4 seconds
     setTimeout(() => {
@@ -60,6 +50,7 @@ function askNextQuestion() {
 
 // Generate interview questions using Gemini API
 const generateInterviewQuestions = async () => {
+  
   const prompt = `You are an AI interviewer. Generate ${totalQuestions} basic web development interview questions. The first question should always be: "Welcome to the interview. What's your name?" Only return a list of questions, numbered.`;
 
   const requestOptions = {
@@ -82,8 +73,6 @@ const generateInterviewQuestions = async () => {
 
     // Extract questions from the Gemini response
     generatedQuestions = text.split(/\d+\.\s/).filter((q) => q.trim() !== "");
-
-    askNextQuestion(); // Start the interview
   } catch (error) {
     console.error("Failed to generate questions:", error);
     const errorMsg = createMessageElement(
@@ -92,6 +81,7 @@ const generateInterviewQuestions = async () => {
     );
     chatBody.appendChild(errorMsg);
   }
+
 };
 
 // Handle outgoing user message
@@ -148,16 +138,25 @@ const handleOutgoingMessage = (e) => {
 
     // Save only valid questions & answers (excluding name)
     userAnswers.push(userMessage);
+    if (!sessionId) {
+      sessionId = Date.now();
+      sessionStorage.setItem("sessionId", sessionId);
+    }
+    
     interviewData.push({
       question: currentQuestion,
       answer: userMessage,
+      sessionId: sessionId,
     });
-    localStorage.setItem("interviewData", JSON.stringify(interviewData));
+    sessionStorage.setItem("interviewData", JSON.stringify(interviewData));
 
     currentQuestionIndex++;
+    sendMessageButton.disabled = true;
     setTimeout(() => {
       askNextQuestion();
+      sendMessageButton.disabled = false;
     }, 800);
+    
   } else if (!interviewStarted) {
     generateInterviewQuestions();
   }
@@ -183,8 +182,9 @@ sendMessageButton.addEventListener("click", (e) => handleOutgoingMessage(e));
 
 // Optional: Start interview on page load
 window.onload = () => {
-  localStorage.removeItem("interviewData"); // Clear past interview data
+  sessionStorage.removeItem("interviewData");// Clear past interview data
   localStorage.removeItem("scoredReport"); //Clear the report
+  localStorage.removeItem("reportGenerated");
   setTimeout(() => {
     generateInterviewQuestions();
   }, 100);

@@ -1,23 +1,4 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-import {
-  getAuth,
-  signInWithEmailAndPassword,
-} from "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyDowPfOU7qWA_kyfAY1KWF0SlJ5A7gBl3c",
-  authDomain: "intriview-ai.firebaseapp.com",
-  projectId: "intriview-ai",
-  storageBucket: "intriview-ai.firebasestorage.app",
-  messagingSenderId: "676660422876",
-  appId: "1:676660422876:web:120ec95c69ab29ecaaac19",
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth();
+import { auth, signInWithEmailAndPassword } from "./firebase.js";
 
 // Submit
 const submit = document.getElementById("submit");
